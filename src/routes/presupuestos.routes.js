@@ -5,11 +5,23 @@ const router = Router()
 import { connect } from '../database'
 
 
-router.get('/get', async (req, res) => {
+router.get('/getAllPresupuestos', async (req, res) => {
     const db = await connect()
     if (1 < 2/*userisloged*/) {
-        let result = await db.collection('presupuestos').find({}).toArray()
+        console.log(req.query.author)
+        let result = await db.collection('presupuestos').find({author:req.query.author}).toArray()
         res.send(result)
+    }
+
+})
+router.get('/getPresupuestoById', async (req, res) => {
+    const db = await connect()
+    if (1 < 2/*userisloged*/) {
+        console.log(req.query.presupuesto)
+        let result = await db.collection('presupuestos').findOne({id:req.query.presupuesto})
+        res.send(result)
+    }else{
+        res.send(401)
     }
 
 })
@@ -24,6 +36,18 @@ router.post('/postPresupuesto', async (req, res) => {
     }
 
 
+})
+
+router.put('/deletePresupuesto', async (req, res)=>{
+    const db = await connect()
+    
+    if(req.body.presupuestoId){
+        await db.collection('presupuestos').deleteOne({ id: req.body.presupuestoId })
+       
+        
+    }else{
+        res.sendStatus(401)
+    }
 })
 
 router.post('/postEgresoToPresupuesto', async (req, res) => {
