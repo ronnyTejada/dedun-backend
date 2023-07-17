@@ -2,7 +2,7 @@ import MongoClient from 'mongodb'
 
 export async function connect() {
     try {
-        const client = await MongoClient.connect('mongodb://localhost:27017',{
+        const client = await MongoClient.connect('mongodb+srv://rjt:Hola123-@cluster0.ir5xivc.mongodb.net/?retryWrites=true&w=majority',{
             useNewUrlParser:true,
             useUnifiedTopology:true
         })
