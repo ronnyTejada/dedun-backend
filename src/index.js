@@ -13,7 +13,7 @@ import AuthRoutes from './routes/auth.routes'
 //settings
 app.set('port', process.env.PORT || 3001)
 
-//Middlewates
+//Middlewat
 app.use(express.json())
 // 1
 app.set('llave', config.llave);
