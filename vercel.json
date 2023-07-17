@@ -2,7 +2,7 @@
     "version":2,
     "builds":[
         {
-            "src":"./dist/index.js",
+            "src":"./index.js",
             "use":"@vercel/node"
         }
     ],
@@ -12,7 +12,7 @@
             "dest": "/"
         }
     ],
-    
+
     "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 
 }
