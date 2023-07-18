@@ -30,10 +30,11 @@ router.post('/loginUser', async(req, res)=>{
             
             res.json({
                 mensaje:'correct auth',
-                token:user.id
+                token:user.id,
+                code:200
             })
         }else{
-            res.json({msj:'username or password invalid'})
+            res.json({msj:'username or password invalid',code:401})
         }
     }else{
         res.send(401)
