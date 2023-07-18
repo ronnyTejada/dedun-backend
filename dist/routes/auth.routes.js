@@ -72,11 +72,13 @@ router.post('/loginUser', /*#__PURE__*/function () {
           if (user) {
             res.json({
               mensaje: 'correct auth',
-              token: user.id
+              token: user.id,
+              code: 200
             });
           } else {
             res.json({
-              msj: 'username or password invalid'
+              msj: 'username or password invalid',
+              code: 401
             });
           }
           _context2.next = 15;
